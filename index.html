@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cảm Xúc Club — Tìm người nhà yêu âm nhạc tại Hạ Long</title>
+<meta name="description" content="Bạn yêu ca hát hoặc chơi nhạc cụ? Cảm Xúc Club tại Hạ Long chào đón những người đồng điệu, cùng luyện tập và trao gửi cảm xúc qua âm nhạc.">
+<meta name="theme-color" content="#253d70">
+<style>
+:root {
+  --site-primary: #253d70;
+  --site-on-primary: #ffffff;
+  --site-secondary: #f2c6d8;
+  --site-on-secondary: #35223a;
+  --site-background: #fffaf8;
+  --site-on-background: #28243a;
+  --site-font-body: "Avenir Next", "Segoe UI", sans-serif;
+  --site-font-heading: "Georgia", "Times New Roman", serif;
+  --site-heading-scale: 1;
+  --site-spacing-scale: 1;
+  --site-radius-scale: 1;
+  --site-decoration-opacity: 1;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: var(--site-font-body); color: var(--site-on-background); background: var(--site-background); }
+.site { min-height: 100vh; background-color: var(--site-background); color: var(--site-on-background); overflow: hidden; }
+a { color: inherit; }
+header { display:flex; align-items:center; justify-content:space-between; padding: 22px clamp(20px, 6vw, 84px); gap:20px; }
+.brand { display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.04em; color:var(--site-primary); }
+.brand-mark { width:42px;height:42px;border-radius:50%; display:grid;place-items:center;background:var(--site-secondary);font-size:22px; }
+nav { display:flex; gap:24px; font-size:14px; }
+nav a { text-decoration:none; opacity:.82; }
+nav a:hover { opacity:1; text-decoration:underline; }
+.hero { position:relative; padding: clamp(54px, 9vw, 112px) clamp(22px, 9vw, 130px) 90px; background:var(--site-primary); color:var(--site-on-primary); }
+.hero:after { content:""; position:absolute; width:350px;height:350px;border:1px solid rgba(255,255,255,.2);border-radius:50%;right:-90px;top:-115px;box-shadow:0 0 0 36px rgba(255,255,255,.035),0 0 0 72px rgba(255,255,255,.025); opacity:var(--site-decoration-opacity); pointer-events:none; }
+.eyebrow { text-transform:uppercase; letter-spacing:.19em; font-size:12px; font-weight:700; color:#f3cada; }
+h1,h2,h3 { font-family:var(--site-font-heading); font-weight:500; line-height:1.12; }
+h1 { font-size:clamp(44px,7vw,82px); max-width:780px; margin:20px 0; }
+.hero p { font-size:clamp(16px,2vw,19px); line-height:1.8; max-width:630px; color:#f0edf7; }
+.actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:30px; }
+.btn { display:inline-flex; justify-content:center; align-items:center; text-decoration:none; border:1px solid transparent; border-radius:999px; padding:14px 23px; font-weight:750; font-size:14px; cursor:pointer; }
+.btn.primary { background:var(--site-secondary); color:var(--site-on-secondary); }
+.btn.ghost { border-color:rgba(255,255,255,.5); color:white; }
+section { padding:76px clamp(22px, 8vw, 110px); }
+.section-kicker { color:#9a5479; font-size:12px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; }
+h2 { font-size:clamp(32px,4vw,50px); margin:13px 0 18px; color:var(--site-primary); }
+.intro { max-width:720px; font-size:17px; line-height:1.8; }
+.cards { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:34px; }
+.card { padding:26px; border:1px solid #eadfe8; border-radius:18px; background:light-dark(#ffffff,#252535); }
+.card .symbol { font-size:26px; margin-bottom:18px; }
+.card h3 { color:var(--site-primary); font-size:25px; margin:0 0 10px; }
+.card p { line-height:1.7; margin:0; font-size:15px; }
+.split { display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center; background:#f8edf2; }
+.quote { font-family:var(--site-font-heading); font-size:clamp(26px,3vw,38px); line-height:1.4; color:var(--site-primary); }
+.checklist { padding:0; list-style:none; }
+.checklist li { padding:12px 0; border-bottom:1px solid #e5d4df; line-height:1.6; }
+.checklist li:before { content:"✦"; color:#a7537d; margin-right:12px; }
+.form-wrap { display:grid; grid-template-columns:.8fr 1.2fr; gap:48px; align-items:start; }
+form { padding:28px; border:1px solid #e8dce5; border-radius:20px; background:light-dark(#ffffff,#252535); }
+label { display:block; font-size:13px; font-weight:750; margin:16px 0 7px; }
+input,select,textarea { width:100%; padding:13px 14px; border:1px solid #d9cfda; border-radius:10px; font:inherit; background:light-dark(#fff,#181824); color:light-dark(#28243a,#f8f6fb); }
+textarea { min-height:95px; resize:vertical; }
+form button { margin-top:20px; border:0; width:100%; }
+.form-note { font-size:12px; line-height:1.6; opacity:.7; margin-top:12px; }
+footer { padding:28px clamp(22px,8vw,110px); background:#1d2f58; color:#f6edf4; display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; font-size:13px; }
+footer strong { letter-spacing:.08em; }
+@media(max-width:760px) {
+ nav { display:none; }
+ .cards,.split,.form-wrap { grid-template-columns:1fr; }
+ section { padding-top:56px;padding-bottom:56px; }
+ .split { gap:20px; }
+ .hero { padding-bottom:68px; }
+}
+
+html{scroll-behavior:smooth;scroll-padding-top:30px} .brand-logo{border-radius:50%;object-fit:contain;background:white}.hero{min-height:720px;display:flex;align-items:center;padding:80px clamp(22px,7vw,110px);isolation:isolate}.hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:-2}.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,29,54,.96),rgba(14,29,54,.8) 43%,rgba(14,29,54,.15));z-index:-1}.hero:after{display:none}.hero-content{max-width:790px}.hero h1{font-size:clamp(45px,6vw,80px)}.hero h1 em{color:#f2c6d8;font-weight:400}.hero p{max-width:570px}.hero .hero-footnote{font-size:13px;margin-top:30px;color:#ded9e8}.hero .eyebrow{letter-spacing:.14em}.card,form{background:white}.card .symbol{font-size:24px}#khoanh-khac{background:#f1f3f7}.gallery-heading{display:flex;align-items:center;gap:50px;justify-content:space-between}.gallery-heading h2{flex:1}.gallery-heading p{flex:1;max-width:430px}.photo-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:30px 24px;margin-top:28px}figure{margin:0;min-width:0}.photo-button{padding:0;border:0;width:100%;display:block;position:relative;background:#172948;cursor:zoom-in;border-radius:14px;overflow:hidden}.photo-button img{width:100%;height:auto;aspect-ratio:1.8;object-fit:cover;display:block;transition:transform .35s}.photo-button:hover img{transform:scale(1.025)}figcaption{font-size:15px;padding:13px 2px;color:#253d70}.zoom-hint{position:absolute;right:12px;bottom:12px;background:#12243cba;color:white;border-radius:30px;padding:8px 12px;font-size:12px}.image-note{font-size:12px;color:#686577;line-height:1.6}.outline{border-color:#253d70;color:#253d70}#messageResult{margin-top:24px}#messageResult .actions{margin-top:12px}#messageResult button{width:auto;margin-top:0}#draft{min-height:220px}dialog{border:0;padding:0;max-width:min(1200px,94vw);max-height:94vh;background:#14223b;color:white;border-radius:12px}dialog::backdrop{background:#080d19e8}dialog img{width:100%;height:auto;max-height:78vh;object-fit:contain;display:block}dialog p{padding:0 20px 12px}dialog .close{position:absolute;right:12px;top:12px;background:#14223be8;color:white;border:1px solid white;border-radius:30px;padding:10px 16px;cursor:pointer}a:focus-visible,button:focus-visible{outline:3px solid #bd6590;outline-offset:4px}input,select,textarea{background:white;color:#28243a}nav{align-items:center}header{padding-top:14px;padding-bottom:14px}.quote{max-width:970px}#tham-gia{padding-top:24px}section{max-width:1800px;margin:auto}footer{line-height:1.7}
+@media(max-width:760px){.hero{min-height:660px;padding:60px 24px}.hero:before{background:linear-gradient(90deg,#0e1d36ed,#0e1d36a8)}.hero-photo{object-position:44% center}.hero h1{font-size:clamp(43px,10vw,66px)}.gallery-heading{display:block}.photo-grid{grid-template-columns:1fr;gap:20px}.brand{font-size:14px}.brand-logo{width:50px;height:50px}.hero .actions .btn{width:100%}.form-wrap{gap:24px}form{padding:22px}.intro{font-size:16px}.card{padding:24px}.gallery-heading h2{font-size:34px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.photo-button img{transition:none}}
+
+@font-face{font-family:Playfair;src:url('assets/fonts/PlayfairDisplay[wght].ttf') format('truetype');font-weight:400 900;font-style:normal;font-display:swap}
+@font-face{font-family:Playfair;src:url('assets/fonts/PlayfairDisplay-Italic[wght].ttf') format('truetype');font-weight:400 900;font-style:italic;font-display:swap}
+@font-face{font-family:BeVietnam;src:url('assets/fonts/BeVietnamPro-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:BeVietnam;src:url('assets/fonts/BeVietnamPro-SemiBold.ttf') format('truetype');font-weight:600 900;font-display:swap}
+@font-face{font-family:Dancing;src:url('assets/fonts/DancingScript[wght].ttf') format('truetype');font-weight:400 700;font-display:swap}
+:root{--site-font-body:BeVietnam,'Segoe UI',sans-serif;--site-font-heading:Playfair,Georgia,serif;--site-background:#fffaf7;--site-secondary:#efd0db}
+h1,h2,h3{line-height:1.3;letter-spacing:-.025em;text-wrap:balance}h2{font-weight:500}h3{font-weight:500}.hero h1{font-size:clamp(48px,6.1vw,82px);line-height:1.3;margin:22px 0 26px;font-weight:500;max-width:890px}.hero h1 em{font-family:Dancing,Playfair,serif;font-size:1.12em;line-height:1.5;display:inline-block;padding:0 .07em .08em 0;color:#f5cbd9;font-weight:600;letter-spacing:0}.hero-content{max-width:920px}.hero{min-height:770px;padding-top:80px;padding-bottom:70px}.hero p{line-height:1.95}.hero .eyebrow{font-size:11px;line-height:1.9}.quote{font-family:Playfair,serif;font-style:italic;font-size:clamp(28px,3.2vw,43px);line-height:1.6;padding:12px 0 12px 26px;border-left:2px solid #b77b92}.brand{letter-spacing:.015em}.section-kicker{font-size:11px;line-height:1.9;letter-spacing:.12em}.intro{line-height:1.95}.card p,.checklist li{line-height:1.9}.card{border-radius:5px;border-top:2px solid #d4a6bb}.card h3{font-size:26px}.photo-button{border-radius:5px}figcaption{font-family:Playfair,serif;font-style:italic;font-size:19px;line-height:1.6;padding-top:14px}form h3{line-height:1.5}label{line-height:1.7}.btn{line-height:1.6;font-size:13px}header{background:#fffaf7}.form-note{line-height:1.85}
+@media(max-width:760px){.hero{min-height:700px;padding:55px 24px 60px}.hero h1{font-size:clamp(42px,9.8vw,64px);line-height:1.4}.hero h1 em{font-size:1.05em;line-height:1.55}.hero p{font-size:15px}.hero .eyebrow{font-size:10px;letter-spacing:.09em}.quote{padding-left:18px;font-size:29px}.gallery-heading h2{font-size:32px;line-height:1.4}h2{line-height:1.4}.brand{font-size:12px}figcaption{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="site" data-sites-preview-theme>
+<header>
+  <div class="brand"><img class="brand-logo" src="assets/logo.webp" width="62" height="62" alt="Logo Cảm Xúc Club"><span>CẢM XÚC CLUB</span></div>
+  <nav><a href="#ve-chung-toi">Về chúng tôi</a><a href="#khoanh-khac">Khoảnh khắc</a><a href="#quyen-loi">Bạn nhận được gì?</a><a href="#tham-gia">Tham gia CLB</a></nav>
+</header>
+<main>
+  <section class="hero">
+<img class="hero-photo" src="assets/bay.webp" width="1679" height="937" alt="Không gian đêm nhạc Cảm Xúc Club bên vịnh Hạ Long" fetchpriority="high">
+<div class="hero-content">
+    <div class="eyebrow">Hạ Long · Chào đón thành viên mới</div>
+    <h1>Tìm người nhà.<br><em>Chung một giai điệu.</em></h1>
+    <p>Bạn yêu ca hát, chơi nhạc cụ và muốn mang điều gì đó chạm tới trái tim người nghe? Cảm Xúc Club đang tìm những người đồng điệu để cùng luyện tập, cùng biểu diễn và cùng trao gửi yêu thương.</p>
+    <div class="actions"><a class="btn primary" href="#tham-gia">Tôi muốn tham gia ↗</a><a class="btn ghost" href="#ve-chung-toi">Khám phá Cảm Xúc Club</a></div><p class="hero-footnote">Một sân khấu gần gũi. Những kết nối từ trái tim.</p></div>
+  </section>
+  <section id="ve-chung-toi">
+    <div class="section-kicker">Tìm người đồng điệu</div>
+    <h2>Âm nhạc sẽ đẹp hơn khi ta cùng nhau tạo nên.</h2>
+    <p class="intro">Cảm Xúc Club là nơi gặp gỡ của những người yêu âm nhạc tại Hạ Long, không giới hạn nghề nghiệp hay độ tuổi. Chúng tôi tìm người có khả năng ca hát hoặc chơi nhạc cụ, có tinh thần luyện tập và mong muốn gắn bó. Bạn không cần đã thành danh; sự chân thành và cảm xúc bạn gửi vào từng giai điệu luôn được trân trọng.</p>
+    <div class="cards">
+      <article class="card"><div class="symbol">🎸</div><h3>Yêu âm nhạc</h3><p>Bạn thích hát và muốn kể một câu chuyện bằng giọng ca của mình? Hãy mang đến một ca khúc bạn yêu, cùng tinh thần lắng nghe và luyện tập.</p></article>
+      <article class="card"><div class="symbol">🥁</div><h3>Chơi nhạc cụ, tìm bạn diễn</h3><p>Guitar, piano, cajon, trống, violin… Chúng tôi chào đón người chơi nhạc cụ muốn hòa tấu, đệm hát và cùng xây dựng những tiết mục giàu cảm xúc.</p></article>
+      <article class="card"><div class="symbol">🤝</div><h3>Sẵn sàng kết nối</h3><p>Chủ động, có tinh thần hợp tác, tôn trọng sự khác biệt và sẵn sàng góp sức để cùng tạo nên những hoạt động ý nghĩa.</p></article>
+    </div>
+  </section>
+<section id="khoanh-khac"><div class="section-kicker">Một chút không khí Cảm Xúc Club</div><div class="gallery-heading"><h2>Nhìn thấy sân khấu.<br>Cảm nhận sự gần gũi.</h2><p class="intro">Từ người đứng hát đến người ngồi nghe, mỗi người đều góp một phần vào cảm xúc của đêm nhạc.</p></div><div class="photo-grid"><figure><button class="photo-button" type="button" data-photo="assets/audience.webp" data-caption="Âm nhạc nối gần những người xa lạ." aria-label="Xem ảnh lớn: Khi người hát và người nghe cùng hòa nhịp"><img src="assets/audience.webp" alt="Khi người hát và người nghe cùng hòa nhịp" loading="lazy" width="1680" height="930"><span class="zoom-hint" aria-hidden="true">Xem ảnh ↗</span></button><figcaption>Âm nhạc nối gần những người xa lạ.</figcaption></figure><figure><button class="photo-button" type="button" data-photo="assets/singer.webp" data-caption="Đặt cảm xúc vào từng lời ca." aria-label="Xem ảnh lớn: Một giọng hát, một câu chuyện"><img src="assets/singer.webp" alt="Một giọng hát, một câu chuyện" loading="lazy" width="1680" height="930"><span class="zoom-hint" aria-hidden="true">Xem ảnh ↗</span></button><figcaption>Đặt cảm xúc vào từng lời ca.</figcaption></figure><figure><button class="photo-button" type="button" data-photo="assets/stage.webp" data-caption="Tìm bạn diễn, tìm người đồng điệu." aria-label="Xem ảnh lớn: Những giai điệu cùng nhau tạo nên"><img src="assets/stage.webp" alt="Những giai điệu cùng nhau tạo nên" loading="lazy" width="1680" height="930"><span class="zoom-hint" aria-hidden="true">Xem ảnh ↗</span></button><figcaption>Tìm bạn diễn, tìm người đồng điệu.</figcaption></figure><figure><button class="photo-button" type="button" data-photo="assets/mc.webp" data-caption="Có một nơi để bạn góp tiếng nói của mình." aria-label="Xem ảnh lớn: Sân khấu gần gũi của Cảm Xúc Club"><img src="assets/mc.webp" alt="Sân khấu gần gũi của Cảm Xúc Club" loading="lazy" width="1680" height="930"><span class="zoom-hint" aria-hidden="true">Xem ảnh ↗</span></button><figcaption>Có một nơi để bạn góp tiếng nói của mình.</figcaption></figure></div><p class="image-note">Hình ảnh từ hoạt động của CLB, đã được hiệu chỉnh ánh sáng và màu sắc bằng AI.</p></section>
+  <section class="split" id="quyen-loi">
+    <div>
+      <div class="section-kicker">Gia nhập để lớn lên cùng nhau</div>
+      <h2>Không chỉ là một câu lạc bộ.</h2>
+      <p class="intro">Đây là nơi để bạn thử sức, học hỏi, mở rộng kết nối và biến tình yêu âm nhạc thành những trải nghiệm thật.</p>
+    </div>
+    <div>
+      <ul class="checklist">
+        <li><strong>Phát triển kỹ năng:</strong> luyện tập, biểu diễn, làm việc nhóm và tự tin trước khán giả.</li>
+        <li><strong>Tham gia chương trình:</strong> biểu diễn âm nhạc, đêm nhạc theo chủ đề, giao lưu và các sự kiện do CLB tổ chức hoặc kết nối.</li>
+        <li><strong>Kết nối cộng đồng:</strong> gặp gỡ những người cùng đam mê, tìm bạn diễn và xây dựng các mối quan hệ tích cực.</li>
+        <li><strong>Thử sức ở nhiều vai trò:</strong> biểu diễn, nội dung, truyền thông – sự kiện, đối ngoại hoặc hậu cần.</li>
+        <li><strong>Góp dấu ấn riêng:</strong> cùng đề xuất ý tưởng, xây dựng chương trình và tạo nên những khoảnh khắc đáng nhớ.</li>
+      </ul>
+    </div>
+  </section>
+  <section>
+    <div class="quote">“Chúng tôi đang tìm người nhà — những người muốn cùng nhau làm nên một đêm nhạc có cảm xúc.”</div>
+    <p class="intro">Dù bạn đã có kinh nghiệm sân khấu hay mới muốn bước ra khỏi vùng an toàn, Cảm Xúc Club luôn trân trọng tinh thần học hỏi, sự chân thành và năng lượng bạn mang đến.</p>
+  </section>
+  <section id="tham-gia">
+    <div class="form-wrap">
+      <div>
+        <div class="section-kicker">Mở lời chào thành viên mới</div>
+        <h2>Hãy để chúng mình biết về bạn nhé!</h2>
+        <p class="intro">Hãy giới thiệu đôi điều về bạn. Trang sẽ soạn sẵn lời nhắn để bạn sao chép và gửi tới fanpage Cảm Xúc Club. Chúng ta có thể bắt đầu từ một cuộc trò chuyện thật gần gũi.</p>
+        <p><strong>Cảm Xúc Club</strong><br><span style="opacity:.75">Âm nhạc · Yêu thương · Kết nối</span></p>
+      </div>
+      <form id="joinForm">
+        <h3 style="margin:0;color:var(--site-primary);font-size:26px">Đăng ký tham gia</h3>
+        <label for="name">Họ và tên *</label><input id="name" name="name" required placeholder="Tên của bạn">
+        <label for="age">Độ tuổi *</label><select id="age" name="age" required><option value="">Chọn độ tuổi</option><option>18–22</option><option>23–27</option><option>28–35</option><option>36–45</option><option>46–60</option><option>Trên 60</option><option>Dưới 18</option></select>
+        <label for="contact">Số điện thoại hoặc Facebook/Zalo *</label><input id="contact" name="contact" required placeholder="Cách liên hệ với bạn">
+        <label for="interest">Bạn yêu thích / chơi nhạc cụ gì?</label><input id="interest" name="interest" placeholder="Ví dụ: guitar, piano, hát, cajon...">
+        <label for="role">Bạn muốn tham gia ở vai trò nào?</label><select id="role" name="role"><option>Biểu diễn / chơi nhạc cụ</option><option>Ca hát / sáng tác</option><option>Truyền thông – sự kiện</option><option>Đối ngoại / kết nối</option><option>Hậu cần / hỗ trợ chương trình</option><option>Muốn tìm hiểu thêm</option></select>
+        <label for="message">Đôi điều về bạn (không bắt buộc)</label><textarea id="message" name="message" placeholder="Kinh nghiệm, mong muốn hoặc ý tưởng bạn muốn chia sẻ..."></textarea>
+        <button class="btn primary" type="submit">Soạn lời nhắn tham gia ↗</button>
+        <p class="form-note">Thông tin chỉ được dùng để soạn lời nhắn trên thiết bị của bạn. Bạn cần gửi tin nhắn tới fanpage để CLB nhận được đăng ký.</p>
+        <div id="messageResult" hidden><label for="draft">Lời nhắn của bạn</label><textarea id="draft" readonly></textarea><div class="actions"><button class="btn primary" id="copyMessage" type="button">Sao chép lời nhắn</button><a class="btn outline" href="https://www.facebook.com/Camxuc.club" target="_blank" rel="noopener">Mở fanpage để gửi ↗</a></div></div><p id="status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+</main>
+<footer><strong>CẢM XÚC CLUB</strong><span>Chạm giai điệu – Gọi yêu thương</span><a href="https://www.facebook.com/Camxuc.club" target="_blank" rel="noopener">Kết nối trên Facebook ↗</a></footer>
+</div>
+<dialog id="photoDialog" aria-label="Xem ảnh hoạt động Cảm Xúc Club"><button class="close" type="button" autofocus>Đóng ×</button><img id="largePhoto" alt=""><p id="photoCaption"></p></dialog>
+<script>
+const dialog=document.getElementById('photoDialog');
+document.querySelectorAll('[data-photo]').forEach(button=>button.addEventListener('click',()=>{document.getElementById('largePhoto').src=button.dataset.photo;document.getElementById('largePhoto').alt=button.querySelector('img').alt;document.getElementById('photoCaption').textContent=button.dataset.caption;dialog.showModal()}));
+dialog.querySelector('.close').addEventListener('click',()=>dialog.close());dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close()});
+document.getElementById('joinForm').addEventListener('submit',function(e){e.preventDefault();const f=new FormData(this);document.getElementById('draft').value=`Chào Cảm Xúc Club! Tôi muốn tìm hiểu và tham gia CLB.\n\nHọ tên: ${f.get('name').trim()}\nĐộ tuổi: ${f.get('age')}\nLiên hệ: ${f.get('contact').trim()}\nCa hát / nhạc cụ: ${f.get('interest').trim()||'Xin trao đổi thêm'}\nVai trò mong muốn: ${f.get('role')}\nChia sẻ thêm: ${f.get('message').trim()||'Rất mong được kết nối cùng CLB.'}`;document.getElementById('messageResult').hidden=false;document.getElementById('status').textContent='Lời nhắn đã sẵn sàng. Hãy sao chép, mở fanpage và gửi trong mục Nhắn tin nhé.';document.getElementById('draft').focus()});
+document.getElementById('copyMessage').addEventListener('click',async()=>{const draft=document.getElementById('draft');try{await navigator.clipboard.writeText(draft.value);document.getElementById('status').textContent='Đã sao chép! Bạn hãy mở fanpage và dán vào mục Nhắn tin.'}catch{draft.focus();draft.select();document.getElementById('status').textContent='Hãy sao chép phần lời nhắn đang được chọn, rồi gửi tới fanpage.'}});
+</script></body></html>
